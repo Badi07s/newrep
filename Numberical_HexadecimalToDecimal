@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace _4.HexadecimalToDecimal
+{
+    class hexidecimalToBinary
+    {
+        static void Main()
+        {
+            Console.Write("Please enter a hex number. (Example 0x14F). Hex = ");
+            string str = Console.ReadLine();
+            str = str.Substring(2, str.Length - 2);
+            int count = str.Length;
+            int iRes = 0;
+            int iFig = 0;
+            int iMultip = 0;
+            int j;
+            if (count > 0)
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    switch (str.Substring((str.Length - 1 - i), 1))
+                    {
+
+                        case "0": iFig = 0; break;
+                        case "1": iFig = 1; break;
+                        case "2": iFig = 2; break;
+                        case "3": iFig = 3; break;
+                        case "4": iFig = 4; break;
+                        case "5": iFig = 5; break;
+                        case "6": iFig = 6; break;
+                        case "7": iFig = 7; break;
+                        case "8": iFig = 8; break;
+                        case "9": iFig = 9; break;
+                        case "A":
+                        case "a": iFig = 10; break;
+                        case "B":
+                        case "b": iFig = 11; break;
+                        case "C":
+                        case "c": iFig = 12; break;
+                        case "D":
+                        case "d": iFig = 13; break;
+                        case "E":
+                        case "e": iFig = 14; break;
+                        case "F":
+                        case "f": iFig = 15; break;
+                        default: break;
+                    }
+                    iMultip = 1;
+                    j = i;
+                    while (j > 0)
+                    {
+                        iMultip *= 16;
+                        j--;
+                    }
+                        iRes += iFig * iMultip;
+                }
+            }
+            Console.WriteLine("The decimal representation of the entered digit is: {0}", iRes);
+            Console.ReadLine();
+        }
+    }
+}
